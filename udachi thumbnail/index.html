@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./output.css">
+    <title>UDACHI STORE</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"  rel="stylesheet" />
+</head>
+<body>
+
+<!--navbar-->
+  <nav class="bg-white border-gray-200 dark:bg-gray-900">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="/udachi thumbnail/" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <span class="self-center text-2xl font-semibold whitespace-nowrap text-blue-700">Udachi</span>
+      </a>
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+          </svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="/udachi thumbnail" class="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
+          </li>
+          <li>
+            <a href="/Product" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Product</a>
+          </li>
+          <li>
+            <a href="/contact/" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"></a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--end navbar-->
+
+  <style>
+    .carousel-container {
+        perspective: 1000px;
+        touch-action: pan-y pinch-zoom;
+    }
+
+    .carousel-track {
+        transform-style: preserve-3d;
+        transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .carousel-item {
+        backface-visibility: hidden;
+        transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .carousel-item.active {
+        opacity: 1;
+        transform: scale(1) translateZ(0);
+    }
+
+    @media (max-width: 640px) {
+        .carousel-item.prev {
+            opacity: 0;
+            transform: scale(0.8) translateX(-50%) translateZ(-100px);
+        }
+
+        .carousel-item.next {
+            opacity: 0;
+            transform: scale(0.8) translateX(50%) translateZ(-100px);
+        }
+    }
+
+    @media (min-width: 641px) {
+        .carousel-item.prev {
+            opacity: 0.7;
+            transform: scale(0.9) translateX(-100%) translateZ(-100px);
+        }
+
+        .carousel-item.next {
+            opacity: 0.7;
+            transform: scale(0.9) translateX(100%) translateZ(-100px);
+        }
+    }
+
+    .carousel-item.hidden {
+        opacity: 0;
+        transform: scale(0.8) translateZ(-200px);
+    }
+
+    .nav-button {
+        transition: all 0.3s;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+
+    @media (hover: hover) {
+        .nav-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+    }
+
+    .nav-button:active {
+        transform: scale(0.95);
+    }
+
+    .progress-bar {
+        transition: width 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+</style>
+</head>
+<!-- Background effects -->
+<div class="fixed inset-0 -z-10">
+    <div class="absolute inset-0 bg-gradient-to-br from-violet-900/20 via-purple-900/20 to-fuchsia-900/20"></div>
+    <div class="absolute top-1/4 left-1/4 w-48 h-48 sm:w-96 sm:h-96 bg-violet-500/10 rounded-full filter blur-3xl"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-96 sm:h-96 bg-fuchsia-500/10 rounded-full filter blur-3xl"></div>
+</div>
+
+<!-- Main container -->
+<div class="w-full max-w-6xl mx-auto">
+    <!-- Carousel container -->
+    <div class="carousel-container relative">
+        <!-- Progress bar -->
+        <div class="absolute top-0 left-0 right-0 h-1 bg-white/10 rounded-full overflow-hidden z-20">
+            <div class="progress-bar absolute top-0 left-0 h-full w-1/3 bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
+        </div>
+
+        <!-- Navigation buttons -->
+        <button class="nav-button absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center z-20 text-white touch-manipulation" onclick="prevSlide()" title="Previous slide">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </button>
+        
+        <button class="nav-button absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center z-20 text-white touch-manipulation" onclick="nextSlide()" title="Next slide">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </button>
+
+        <!-- Carousel track -->
+        <div class="carousel-track relative h-[400px] sm:h-[500px] md:h-[600px] overflow-hidden">
+            <!-- Carousel items -->
+            <div class="carousel-item active absolute top-0 left-0 w-full h-full">
+                <div class="w-full h-full p-4 sm:p-8">
+                    <div class="w-full h-full rounded-xl sm:rounded-2xl overflow-hidden relative group">
+                        <img src="/gambar/udachi jpn-white.jpeg" alt="Geometric art installation" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <div class="absolute inset-0 bg-gradient-to-br from-violet-500/40 to-purple-500/40 mix-blend-overlay"></div>
+                        <div class="absolute inset-x-0 bottom-0 p-4 sm:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                            <h3 class="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3">Udachi-JPN</h3>
+                            <p class="text-gray-200 text-sm sm:text-base md:text-lg max-w-2xl"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item next absolute top-0 left-0 w-full h-full">
+                <div class="w-full h-full p-4 sm:p-8">
+                    <div class="w-full h-full rounded-xl sm:rounded-2xl overflow-hidden relative group">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80" alt="Futuristic tech setup" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <div class="absolute inset-0 bg-gradient-to-br from-fuchsia-500/40 to-pink-500/40 mix-blend-overlay"></div>
+                        <div class="absolute inset-x-0 bottom-0 p-4 sm:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                            <h3 class="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3">Tech Haven</h3>
+                            <p class="text-gray-200 text-sm sm:text-base md:text-lg max-w-2xl">Immerse yourself in the cutting edge of technology and innovation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item hidden absolute top-0 left-0 w-full h-full">
+                <div class="w-full h-full p-4 sm:p-8">
+                    <div class="w-full h-full rounded-xl sm:rounded-2xl overflow-hidden relative group">
+                        <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&q=80" alt="Abstract digital art" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <div class="absolute inset-0 bg-gradient-to-br from-pink-500/40 to-rose-500/40 mix-blend-overlay"></div>
+                        <div class="absolute inset-x-0 bottom-0 p-4 sm:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                            <h3 class="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3">Neural Dreams</h3>
+                            <p class="text-gray-200 text-sm sm:text-base md:text-lg max-w-2xl">AI-generated masterpieces that blur the line between human and machine creativity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item active absolute top-0 left-0 w-full h-full">
+              <div class="w-full h-full p-4 sm:p-8">
+                  <div class="w-full h-full rounded-xl sm:rounded-2xl overflow-hidden relative group">
+                      <img src="/gambar/Udachi-origin.jpeg" alt="Geometric art installation" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                      <div class="absolute inset-0 bg-gradient-to-br from-violet-500/40 to-purple-500/40 mix-blend-overlay"></div>
+                      <div class="absolute inset-x-0 bottom-0 p-4 sm:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                          <h3 class="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3">Digital Prism</h3>
+                          <p class="text-gray-200 text-sm sm:text-base md:text-lg max-w-2xl">Where geometry meets art in a stunning display of light and form.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <!-- Indicators -->
+        <div class="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 flex gap-1 sm:gap-2 z-20">
+            <button class="w-8 sm:w-12 h-1 sm:h-1.5 rounded-full bg-white/40 hover:bg-white/60 transition-colors" title="Go to slide 1"></button>
+            <button class="w-8 sm:w-12 h-1 sm:h-1.5 rounded-full bg-white/20 hover:bg-white/60 transition-colors" title="Go to slide 2"></button>
+            <button class="w-8 sm:w-12 h-1 sm:h-1.5 rounded-full bg-white/20 hover:bg-white/60 transition-colors" title="Go to slide 3"></button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-item');
+    const indicators = document.querySelectorAll('.bottom-2 button, .bottom-4 button');
+    const progressBar = document.querySelector('.progress-bar');
+    let autoAdvanceTimer;
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const carousel = document.querySelector('.carousel-track');
+
+    // Add touch events for swipe
+    carousel.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+        }
+    }
+
+    function updateSlides() {
+        slides.forEach((slide, index) => {
+            slide.className = 'carousel-item absolute top-0 left-0 w-full h-full';
+            if (index === currentSlide) {
+                slide.classList.add('active');
+            } else if (index === (currentSlide + 1) % slides.length) {
+                slide.classList.add('next');
+            } else if (index === (currentSlide - 1 + slides.length) % slides.length) {
+                slide.classList.add('prev');
+            } else {
+                slide.classList.add('hidden');
+            }
+        });
+
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+            indicator.className = `w-8 sm:w-12 h-1 sm:h-1.5 rounded-full transition-colors ${
+                index === currentSlide ? 'bg-white/40' : 'bg-white/20'
+            } hover:bg-white/60`;
+        });
+
+        // Update progress bar
+        progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+    }
+
+    function resetAutoAdvance() {
+        clearInterval(autoAdvanceTimer);
+        autoAdvanceTimer = setInterval(nextSlide, 5000);
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateSlides();
+        resetAutoAdvance();
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        updateSlides();
+        resetAutoAdvance();
+    }
+
+    // Add click handlers to indicators
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            currentSlide = index;
+            updateSlides();
+            resetAutoAdvance();
+        });
+    });
+
+    // Initialize auto advance
+    resetAutoAdvance();
+
+    // Initialize slides
+    updateSlides();
+</script>
+<!--end carousel-->
+
+<div class="bg-gray-200 w-screen p-8 sm:p-16 dark:bg-gray-900">
+  <div class="p-4 mb-4 text-lg text-center leading-tight first-letter:capitalize font-medium dark:text-gray-100">
+    <h3>Product</h3>
+  </div>
+  <div class="mx-auto w-fit grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-2 gap-6">
+  <!-- card -->
+  <div class="relative group bg-gray-200 h-[400px] shadow-lg rounded-2xl overflow-hidden">
+    <img class="w-full h-full group-hover:h-64 object-cover rounded-2xl transition-all delay-150 duration-300 ease" src="/gambar/udachi jpn-white.jpeg" />
+    <div class="bg-gray-100 dark:bg-gray-700 w-full h-40 absolute left-0 bottom-0 -mb-44 group-hover:mb-0 rounded-b-2xl transition-all delay-150 duration-300 ease">
+      <div class="p-6">
+        <div class="capitalize flex items-center justify-between gap-4">
+          <div>
+            <h2 class="text-blue-600 text-lg font-bold">Udachi-JPN</h2>
+            <p class="dark:text-gray-100">Kaos Kaki</p>
+          </div>
+          <div>
+            <p class="text-lg font-semibold text-black cursor-auto my-3">Rp25.000</p>
+          </div>
+          <del>
+            <p class="text-sm text-gray-600 cursor-auto ml-2">Rp59.999</p>
+        </del>
+        </div>
+        <div class="block mt-4">
+          <div class="absolute bottom-2 left-5">
+            <a href="/Product/index.html">
+            <button  class="bg-blue-600 text-gray-100 font-medium py-2.5 px-4 rounded-xl opacity-90 hover:opacity-100">Lihat Produk</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end card -->
+  <!-- card -->
+  <div class="relative group bg-gray-200 h-[400px] shadow-lg rounded-2xl overflow-hidden">
+    <img class="w-full h-full group-hover:h-64 object-cover rounded-2xl transition-all delay-150 duration-300 ease" src="/gambar/udachi jpn.jpeg" />
+    <div class="bg-gray-100 dark:bg-gray-700 w-full h-40 absolute left-0 bottom-0 -mb-44 group-hover:mb-0 rounded-b-2xl transition-all delay-150 duration-300 ease">
+      <div class="p-6">
+        <div class="capitalize flex items-center justify-between gap-4">
+          <div>
+            <h2 class="text-blue-600 text-lg font-bold">Udachi-JPN</h2>
+            <p class="dark:text-gray-100">Kaos Kaki</p>
+          </div>
+          <div>
+            <p class="text-lg font-semibold text-black cursor-auto my-3">Rp25.000</p>
+          </div>
+          <del>
+            <p class="text-sm text-gray-600 cursor-auto ml-2">Rp59.999</p>
+        </del>
+        </div>
+        <div class="block mt-4">
+          <div class="absolute bottom-2 left-5">
+            <a href="/Product/index.html">
+            <button  class="bg-blue-600 text-gray-100 font-medium py-2.5 px-4 rounded-xl opacity-90 hover:opacity-100">Lihat Produk</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div
+  <!---- end card -->
+
+  <!-- card -->
+  <div class="relative group bg-gray-200 h-[400px] shadow-lg rounded-2xl overflow-hidden">
+    <img class="w-full h-full group-hover:h-64 object-cover rounded-2xl transition-all delay-150 duration-300 ease" src="/gambar/Udachi-origin.jpeg" />
+    <div class="bg-gray-100 dark:bg-gray-700 w-full h-40 absolute left-0 bottom-0 -mb-44 group-hover:mb-0 rounded-b-2xl transition-all delay-150 duration-300 ease">
+      <div class="p-6">
+        <div class="capitalize flex items-center justify-between gap-4">
+          <div>
+            <h2 class="text-blue-600 text-lg font-bold">Udachi-JPN</h2>
+            <p class="dark:text-gray-100">Kaos Kaki</p>
+          </div>
+          <div>
+            <p class="text-lg font-semibold text-black cursor-auto my-3">Rp25.000</p>
+          </div>
+          <del>
+            <p class="text-sm text-gray-600 cursor-auto ml-2">Rp59.999</p>
+        </del>
+        </div>
+        <div class="block mt-4">
+          <div class="absolute bottom-2 left-5">
+            <a href="/Product/index.html">
+            <button  class="bg-blue-600 text-gray-100 font-medium py-2.5 px-4 rounded-xl opacity-90 hover:opacity-100">Lihat Produk</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end card -->
+   <!--card-->
+  <div class="relative group bg-gray-200 h-[400px] shadow-lg rounded-2xl overflow-hidden">
+    <img class="w-full h-full group-hover:h-64 object-cover rounded-2xl transition-all delay-150 duration-300 ease" src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/362cced6-125a-4354-a6e0-f56e747ce4d6/AIR+JORDAN+6+RETRO.png" />
+    <div class="bg-gray-100 dark:bg-gray-700 w-full h-40 absolute left-0 bottom-0 -mb-44 group-hover:mb-0 rounded-b-2xl transition-all delay-150 duration-300 ease">
+      <div class="p-6">
+        <div class="capitalize flex items-center justify-between gap-4">
+          <div>
+            <h2 class="text-blue-600 text-lg font-bold">Udachi-JPN</h2>
+            <p class="dark:text-gray-100">Kaos Kaki</p>
+          </div>
+          <div>
+            <p class="text-lg font-semibold text-black cursor-auto my-3">Rp25.000</p>
+          </div>
+          <del>
+            <p class="text-sm text-gray-600 cursor-auto ml-2">Rp59.999</p>
+        </del>
+        </div>
+        <div class="block mt-4">
+          <div class="absolute bottom-2 left-5">
+            <a href="/Product/index.html">
+            <button  class="bg-blue-600 text-gray-100 font-medium py-2.5 px-4 rounded-xl opacity-90 hover:opacity-100">Lihat Produk</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end card-->
+  </div>
+</div>
+
+
+
+
+
+
+
+      <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+</body>
+</html>

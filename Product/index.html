@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./output.css">
+    <title>UDACHI STORE</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"  rel="stylesheet" />
+</head>
+<body>
+  <!--navbar-->
+  <nav class="bg-white border-gray-200 dark:bg-gray-900">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="/udachi thumbnail/" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <span class="self-center text-2xl font-semibold whitespace-nowrap text-blue-700">Udachi</span>
+      </a>
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+          </svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="/udachi thumbnail" class="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
+          </li>
+          <li>
+            <a href="/Product" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Product</a>
+          </li>
+          <li>
+            <a href="/contact/" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"></a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--end navbar-->
+
+
+
+
+
+
+
+
+
+<!-- source: https://github.com/mfg888/Responsive-Tailwind-CSS-Grid/blob/main/index.html -->
+<div class="text-center p-10">
+  <h1 class="font-bold text-4xl mb-4">Udachi Product</h1>
+  <h1 class="text-3xl"></h1>
+</div>
+
+<!-- ✅ Grid Section - Starts Here 👇 -->
+<section id="Projects"
+  class="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
+
+  <!--   ✅ Product card 1 - Starts Here 👇 -->
+  <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <a href="#">
+        <img src="https://images.unsplash.com/photo-1649261191624-ca9f79ca3fc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
+        <div class="px-4 py-3 w-72">
+            <span class="text-gray-400 mr-3 uppercase text-xs">Udachi</span>
+            <p class="text-lg font-bold text-primary truncate block capitalize">Udachi-JPN</p>
+            <div class="flex items-center">
+                <p class="text-lg font-semibold text-black cursor-auto my-3">Rp25.000</p>
+                <del>
+                    <p class="text-sm text-gray-600 cursor-auto ml-2">Rp59.999</p>
+                </del>
+            </div>
+            <div>
+              <a href="">
+              <button type="button" class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Beli di shopee</button></a>
+          </div>
+            <div>
+              <a href="https://wa.link/b1vq9f">
+              <button type="button" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Beli di Whatsapp</button></a>
+          </div>
+        </div>
+    </a>
+</div>
+  <!--   🛑 Product card 1 - Ends Here  -->
+
+  <!--   ✅ Product card 2 - Starts Here 👇 -->
+  <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <a href="#">
+        <img src="https://images.unsplash.com/photo-1649261191624-ca9f79ca3fc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
+        <div class="px-4 py-3 w-72">
+            <span class="text-gray-400 mr-3 uppercase text-xs">Udachi</span>
+            <p class="text-lg font-bold text-primary truncate block capitalize">Udachi-JPN</p>
+            <div class="flex items-center">
+                <p class="text-lg font-semibold text-black cursor-auto my-3">Rp25.000</p>
+                <del>
+                    <p class="text-sm text-gray-600 cursor-auto ml-2">Rp59.999</p>
+                </del>
+            </div>
+            <div>
+              <a href="">
+              <button type="button" class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Beli di shopee</button></a>
+          </div>
+            <div>
+              <a href="https://wa.link/b1vq9f">
+              <button type="button" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Beli di Whatsapp</button></a>
+          </div>
+        </div>
+    </a>
+</div>
+  <!--   🛑 Product card 2- Ends Here  -->
+
+  <!--   ✅ Product card 3 - Starts Here 👇 -->
+  <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <a href="#">
+        <img src="https://images.unsplash.com/photo-1649261191624-ca9f79ca3fc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
+        <div class="px-4 py-3 w-72">
+            <span class="text-gray-400 mr-3 uppercase text-xs">Udachi</span>
+            <p class="text-lg font-bold text-primary truncate block capitalize">Udachi-JPN</p>
+            <div class="flex items-center">
+                <p class="text-lg font-semibold text-black cursor-auto my-3">Rp25.000</p>
+                <del>
+                    <p class="text-sm text-gray-600 cursor-auto ml-2">Rp59.999</p>
+                </del>
+            </div>
+            <div>
+              <a href="">
+              <button type="button" class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Beli di shopee</button></a>
+          </div>
+            <div>
+              <a href="https://wa.link/b1vq9f">
+              <button type="button" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Beli di Whatsapp</button></a>
+          </div>
+        </div>
+    </a>
+</div>
+  <!--   🛑 Product card 3 - Ends Here  -->
+
+  <!--   ✅ Product card 4 - Starts Here 👇 -->
+  <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <a href="#">
+        <img src="https://images.unsplash.com/photo-1649261191624-ca9f79ca3fc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
+        <div class="px-4 py-3 w-72">
+            <span class="text-gray-400 mr-3 uppercase text-xs">Udachi</span>
+            <p class="text-lg font-bold text-primary truncate block capitalize">Udachi-JPN</p>
+            <div class="flex items-center">
+                <p class="text-lg font-semibold text-black cursor-auto my-3">Rp25.000</p>
+                <del>
+                    <p class="text-sm text-gray-600 cursor-auto ml-2">Rp59.999</p>
+                </del>
+            </div>
+            <div>
+              <a href="">
+              <button type="button" class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Beli di shopee</button></a>
+          </div>
+            <div>
+              <a href="https://wa.link/b1vq9f">
+              <button type="button" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Beli di Whatsapp</button></a>
+          </div>
+        </div>
+    </a>
+</div>
+  <!--   🛑 Product card 4 - Ends Here  -->
+
+  <!--   ✅ Product card 5 - Starts Here 👇 -->
+
+  <!--   🛑 Product card 5 - Ends Here  -->
+
+  <!--   ✅ Product card 6 - Starts Here 👇 -->
+
+      </a>
+  </div>
+  <!--   🛑 Product card 6 - Ends Here  -->
+
+</section>
+
+<!-- 🛑 Grid Section - Ends Here -->
+
+
+<!-- credit -->
+<div class="text-center py-10 px-10">
+  <h2 class="font-bold text-2xl md:text-4xl mb-4"> <a href="https://unsplash.com/@nixcreative"
+          class="underline font-black"></a> </h2>
+</div>
+
+
+
+
+
+      <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+</body>
+</html>
